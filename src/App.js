@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <BannerP/>
-      <Titulo titulo="Adopcion"/>
+      <Titulo titulo="Adopción"/>
     </div>
   );
 }
