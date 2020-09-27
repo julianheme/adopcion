@@ -12,7 +12,7 @@ import styles from "./bannerP.module.css";
 SwiperCore.use([Pagination, Autoplay]);
 export default function BannerP() {
 	return (
-		<Swiper spaceBetween={0} slidesPerView={1} loop="true" pagination={{ clickable: true }} autoplay={{ delay: 4000 }} height={50}>
+		<Swiper spaceBetween={0} slidesPerView={1} loop="true" pagination={{ clickable: true }} autoplay={{ delay: 4000 }}>
 			<SwiperSlide>
 				<img className={styles.imagen} src={Gato1} />
 			</SwiperSlide>
