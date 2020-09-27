@@ -1,6 +1,6 @@
 import React from 'react';
 import Titulo from './components/titulo';
-import BannerP from './components/bannerP';
+import BannerP from './components/banners/bannerP';
 
 function App() {
   return (
