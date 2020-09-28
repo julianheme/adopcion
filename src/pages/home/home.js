@@ -33,6 +33,7 @@ export default class Home extends React.Component {
 	render() {
 		return (
 			<div className={styles.main}>
+				{console.log(this.state.tiendas)}
 				<BannerP />
 
 				<Display title={"Fundaciones Aliadas"} link={"/fundaciones"}>
@@ -56,7 +57,16 @@ export default class Home extends React.Component {
 				</div>
 				<Display title={"Tiendas Aliadas"} link={"/tiendas"}>
 					{this.shuffledT.map((tienda, index) => {
-						return <Tarjeta nombre={tienda.nombre} imagen={tienda.imagen} key={index} id={tienda.id} marca="tiendas" />;
+						return (
+							<Tarjeta
+								nombre={tienda.nombre}
+								imagen={tienda.imagen}
+								key={index}
+								id={tienda.id}
+								marca="tiendas"
+								link={tienda.Link}
+							/>
+						);
 					})}
 				</Display>
 				<Footer />

@@ -13,7 +13,14 @@ export default function Tarjetas(props) {
 		<section className={styles.fundGrid}>
 			{tarjetas.map((tarjeta, index) => {
 				return (
-					<Tarjeta nombre={tarjeta.nombre} imagen={tarjeta.imagen} key={index} id={tarjeta.id} marca={props.marca} />
+					<Tarjeta
+						nombre={tarjeta.nombre}
+						imagen={tarjeta.imagen}
+						key={index}
+						id={tarjeta.id}
+						marca={props.marca}
+						link={tarjeta.Link}
+					/>
 				);
 			})}
 		</section>
