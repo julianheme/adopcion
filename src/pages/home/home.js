@@ -8,7 +8,7 @@ import Tiendas from "../../components/tienda/tiendas";
 import Display from "../../components/banners/display/display";
 import Fundacion from "../../components/fundacion/fundacion";
 import CircleImage from "../../components/banners/display/content/circleImage";
-import Tarjetas from "../../components/tarjetas/tarjetas";
+import Tarjeta from "../../components/tarjetas/tarjeta";
 import Tienda from "../../components/tienda/tienda";
 
 export default class Home extends React.Component {
@@ -39,7 +39,7 @@ export default class Home extends React.Component {
 
 				<Display title={"Fundaciones Aliadas"} link={"/fundaciones"}>
 					{this.shuffledF.map((fundacion, index) => {
-						return <Fundacion nombre={fundacion.nombre} imagen={fundacion.imagen} key={index} id={index} />;
+						return <Tarjeta nombre={fundacion.nombre} imagen={fundacion.imagen} key={index} id={index} marca='fundaciones' />;
 					})}
 				</Display>
 
