@@ -36,8 +36,10 @@ export default class Home extends React.Component {
 						return <Fundacion nombre={fundacion.nombre} imagen={fundacion.imagen} key={index} id={index} />;
 					})}
 				</Display>
+				<div className={styles.div}>
 				<h2 ref={this.fundaciones}>Fundaciones Aliadas</h2>
 				<Tarjetas arreglo={this.state.fundaciones} marca="fundaciones" />
+				</div>
 
 				<Display title={"Tiendas Aliadas"} link={'/tiendas'}>
 					{this.state.tiendas.map((fundacion, index) => {
