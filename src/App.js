@@ -1,6 +1,6 @@
 import React from "react";
 import Titulo from "./components/titulo";
-import BannerP from "./components/banners/bannerP";
+import BannerP from "./components/banners/main/bannerP";
 import Contacto from "./pages/contacto/contacto";
 import styles from "./app.module.css";
 
