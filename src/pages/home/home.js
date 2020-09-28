@@ -5,6 +5,8 @@ import Fundaciones from "../../components/fundacion/fundaciones";
 import Contactanos from "../../components/contactanos/contactanos";
 import styles from "./home.module.css";
 import Tiendas from "../../components/tienda/tiendas";
+import Display from "../../components/banners/display/display";
+import Fundacion from "../../components/fundacion/fundacion";
 
 export default class Home extends React.Component {
 	constructor() {
@@ -53,8 +55,14 @@ export default class Home extends React.Component {
 		return (
 			<div className={styles.main} ref={this.start}>
 				<BannerP />
+				<Display title={'Fundaciones Aliadas'}>
+					{props.fundaciones.map((fundacion, index) => {
+						return <Fundacion nombre={fundacion.nombre} imagen={fundacion.imagen} key={index} id={index} />;
+					})}
+				</Display>
 				<h2 ref={this.fundaciones}>Fundaciones Aliadas</h2>
 				<Fundaciones fundaciones={this.state.fundaciones} />
+
 				<h2 ref={this.tiendas}>Tiendas Aliadas</h2>
 				<Tiendas tiendas={this.state.tiendas} />
 				<span ref={this.contacto} />
