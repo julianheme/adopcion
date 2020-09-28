@@ -7,7 +7,7 @@ export default function Fundacion(props) {
 	return (
 		<div className={`${styles.tarjeta} hvr-grow`}>
 			{props.marca === "tiendas" ? (
-				<a target="_blank" href={props.link}>
+				<a target="_blank" href={props.link} className={styles.link}>
 					<img className={styles.img} src={props.imagen} />
 					<div className={styles.txt}>
 						<p>{props.nombre}</p>
