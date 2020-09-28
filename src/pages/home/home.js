@@ -7,6 +7,7 @@ import styles from "./home.module.css";
 import Tiendas from "../../components/tienda/tiendas";
 import Display from "../../components/banners/display/display";
 import Fundacion from "../../components/fundacion/fundacion";
+import CircleImage from "../../components/banners/display/content/circleImage";
 
 export default class Home extends React.Component {
 	constructor() {
@@ -28,18 +29,21 @@ export default class Home extends React.Component {
 	render() {
 		return (
 			<div className={styles.main}>
-				<h1>Pets by Zeri</h1>
 				<BannerP />
 				<Display title={'Fundaciones Aliadas'}>
-					{props.fundaciones.map((fundacion, index) => {
-						return <Fundacion nombre={fundacion.nombre} imagen={fundacion.imagen} key={index} id={index} />;
-					})}
+					<CircleImage/>
+					<CircleImage/>
+					<CircleImage/>
+					<CircleImage/>
 				</Display>
 				<h2 ref={this.fundaciones}>Fundaciones Aliadas</h2>
 				<Fundaciones fundaciones={this.state.fundaciones} />
-
-				<h2 ref={this.tiendas}>Tiendas Aliadas</h2>
-				<Tiendas tiendas={this.state.tiendas} />
+				<Display title={'Tiendas Aliadas'}>
+					<CircleImage/>
+					<CircleImage/>
+					<CircleImage/>
+					<CircleImage/>
+				</Display>
 			</div>
 		);
 	}

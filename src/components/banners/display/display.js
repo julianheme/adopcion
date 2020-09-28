@@ -8,6 +8,7 @@ const Display = (props) => {
             <div className={Style.grid}>
                 {props.children}
             </div>
+            <a href="/fundaciones"><button className={`hvr-grow ${Style.button}`}>Ver más</button></a>
         </div>
     );
 };
