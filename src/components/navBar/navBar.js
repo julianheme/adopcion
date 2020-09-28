@@ -14,13 +14,13 @@ export default function NavBar(props) {
 					<Link to="/">Inicio</Link>
 				</li>
 				<li className={styles.navItem}>
-					<Link to="/#fundaciones">Fundaciones</Link>
+					<Link to="/fundaciones">Fundaciones</Link>
 				</li>
 				<li className={styles.navItem}>
-					<Link to="/#tiendas">Tiendas</Link>
+					<Link to="/tiendas">Tiendas</Link>
 				</li>
 				<li className={styles.navItem}>
-					<Link to="/#contacto">Contacto</Link>
+					<Link to="/contacto">Contacto</Link>
 				</li>
 			</ul>
 		</nav>
