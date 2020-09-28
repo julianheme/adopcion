@@ -2,6 +2,7 @@ import React from "react";
 import Fundaciones from "../../components/fundacion/fundaciones";
 import axios from "axios";
 import styles from "./fundaciones.module.css";
+import Footer from "../../components/banners/footer/footer";
 
 export default class FundacionesP extends React.Component {
 	constructor() {
@@ -22,8 +23,11 @@ export default class FundacionesP extends React.Component {
 	render() {
 		return (
 			<div className={styles.main}>
+				<div className={styles.wrapper}>
 				<h1>Fundaciones Aliadas</h1>
 				<Fundaciones fundaciones={this.state.fundaciones} />
+				</div>
+				<Footer/>
 			</div>
 		);
 	}

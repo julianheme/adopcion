@@ -10,6 +10,7 @@ import Fundacion from "../../components/fundacion/fundacion";
 import CircleImage from "../../components/banners/display/content/circleImage";
 import Tarjeta from "../../components/tarjetas/tarjeta";
 import Tienda from "../../components/tienda/tienda";
+import Footer from "../../components/banners/footer/footer";
 
 export default class Home extends React.Component {
 	constructor() {
@@ -53,6 +54,7 @@ export default class Home extends React.Component {
 						return <Tarjeta nombre={tienda.nombre} imagen={tienda.imagen} key={index} id={index} marca="tiendas" />;
 					})}
 				</Display>
+				<Footer/>
 			</div>
 		);
 	}

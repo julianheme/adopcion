@@ -2,6 +2,7 @@ import React from "react";
 import Tiendas from "../../components/tienda/tiendas";
 import axios from "axios";
 import styles from "./tiendas.module.css";
+import Footer from "../../components/banners/footer/footer";
 
 export default class TiendasP extends React.Component {
 	constructor() {
@@ -22,8 +23,11 @@ export default class TiendasP extends React.Component {
 	render() {
 		return (
 			<div className={styles.main}>
+				<div className={styles.wrapper}>
 				<h1>Tiendas Aliadas</h1>
 				<Tiendas tiendas={this.state.tiendas} />
+				</div>
+				<Footer/>
 			</div>
 		);
 	}
