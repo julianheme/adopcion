@@ -42,7 +42,13 @@ export default class Home extends React.Component {
 						return <Tarjeta nombre={fundacion.nombre} imagen={fundacion.imagen} key={index} id={index} marca='fundaciones' />;
 					})}
 				</Display>
+				<div className={styles.div}>
+					<h2>Pets</h2>
+					<div className={styles.grid}>
+						aqui van los animales choko
 
+					</div>
+				</div>
 				<Display title={"Tiendas Aliadas"} link={"/tiendas"}>
 					{this.shuffledT.map((tienda, index) => {
 						return <Tienda nombre={tienda.nombre} imagen={tienda.imagen} key={index} id={index} />;
