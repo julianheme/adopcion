@@ -37,14 +37,12 @@ export default class Home extends React.Component {
 			<div className={styles.main}>
 				<BannerP />
 
-				<h2>Fundaciones Aliadas</h2>
 				<Display title={"Fundaciones Aliadas"} link={"/fundaciones"}>
 					{this.shuffledF.map((fundacion, index) => {
 						return <Fundacion nombre={fundacion.nombre} imagen={fundacion.imagen} key={index} id={index} />;
 					})}
 				</Display>
 
-				<h2>Tiendas Aliadas</h2>
 				<Display title={"Tiendas Aliadas"} link={"/tiendas"}>
 					{this.shuffledT.map((tienda, index) => {
 						return <Tienda nombre={tienda.nombre} imagen={tienda.imagen} key={index} id={index} />;
