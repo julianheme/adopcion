@@ -1,5 +1,5 @@
 import React from "react";
-import BannerP from "../../components/banners/bannerP";
+import BannerP from "../../components/banners/main/bannerP";
 import axios from "axios";
 import Fundaciones from "../../components/fundacion/fundaciones";
 import Contacto from "../contacto/contacto";
