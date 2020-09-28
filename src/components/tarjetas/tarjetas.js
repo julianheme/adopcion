@@ -12,7 +12,9 @@ export default function Tarjetas(props) {
 	return (
 		<section className={styles.fundGrid}>
 			{tarjetas.map((tarjeta, index) => {
-				return <Tarjeta nombre={tarjeta.nombre} imagen={tarjeta.imagen} key={index} id={index} marca={props.marca} />;
+				return (
+					<Tarjeta nombre={tarjeta.nombre} imagen={tarjeta.imagen} key={index} id={tarjeta.id} marca={props.marca} />
+				);
 			})}
 		</section>
 	);

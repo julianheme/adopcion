@@ -7,6 +7,7 @@ import NavBar from "./components/navBar/navBar";
 import FundacionesP from "./pages/fundaciones/fundaciones";
 import TiendasP from "./pages/tiendas/tiendas";
 import ContactoP from "./pages/contacto/contacto";
+import FullPet from "./components/pet/fullPet";
 
 function App(props) {
 	return (
@@ -17,6 +18,7 @@ function App(props) {
 				<Switch>
 					<Route path="/fundaciones/:id" component={FullFundacion} />
 					<Route path="/tiendas/:id" component={FullTienda} />
+					<Route path="/pets/:id" component={FullPet} />
 					<Route path="/fundaciones" component={FundacionesP} />
 					<Route path="/tiendas" component={TiendasP} />
 					<Route path="/contacto" component={ContactoP} />

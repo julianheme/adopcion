@@ -1,7 +1,7 @@
 import React from "react";
-import Fundaciones from "../../components/fundacion/fundaciones";
 import axios from "axios";
 import styles from "./fundaciones.module.css";
+import Tarjetas from "../../components/tarjetas/tarjetas";
 
 export default class FundacionesP extends React.Component {
 	constructor() {
@@ -23,7 +23,7 @@ export default class FundacionesP extends React.Component {
 		return (
 			<div className={styles.main}>
 				<h1>Fundaciones Aliadas</h1>
-				<Fundaciones fundaciones={this.state.fundaciones} />
+				<Tarjetas arreglo={this.state.fundaciones} marca="fundaciones" />
 			</div>
 		);
 	}

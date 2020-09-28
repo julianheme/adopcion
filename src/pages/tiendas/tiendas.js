@@ -1,7 +1,7 @@
 import React from "react";
-import Tiendas from "../../components/tienda/tiendas";
 import axios from "axios";
 import styles from "./tiendas.module.css";
+import Tarjetas from "../../components/tarjetas/tarjetas";
 
 export default class TiendasP extends React.Component {
 	constructor() {
@@ -23,7 +23,7 @@ export default class TiendasP extends React.Component {
 		return (
 			<div className={styles.main}>
 				<h1>Tiendas Aliadas</h1>
-				<Tiendas tiendas={this.state.tiendas} />
+				<Tarjetas arreglo={this.state.tiendas} marca="tiendas" />
 			</div>
 		);
 	}
