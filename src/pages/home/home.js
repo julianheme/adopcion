@@ -7,6 +7,7 @@ import styles from "./home.module.css";
 import Tiendas from "../../components/tienda/tiendas";
 import Display from "../../components/banners/display/display";
 import Fundacion from "../../components/fundacion/fundacion";
+import CircleImage from "../../components/banners/display/content/circleImage";
 import Tarjetas from "../../components/tarjetas/tarjetas";
 
 export default class Home extends React.Component {
@@ -29,7 +30,6 @@ export default class Home extends React.Component {
 	render() {
 		return (
 			<div className={styles.main}>
-				<h1>Pets by Zeri</h1>
 				<BannerP />
 				<Display title={"Fundaciones Aliadas"}>
 					{this.state.fundaciones.map((fundacion, index) => {
