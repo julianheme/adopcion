@@ -36,10 +36,10 @@ export default class Home extends React.Component {
 						return <Fundacion nombre={fundacion.nombre} imagen={fundacion.imagen} key={index} id={index} />;
 					})}
 				</Display>
-				<h2 ref={this.fundaciones}>Fundaciones Aliadas</h2>
+				<h2>Fundaciones Aliadas</h2>
 				<Tarjetas arreglo={this.state.fundaciones} marca="fundaciones" />
 
-				<h2 ref={this.tiendas}>Tiendas Aliadas</h2>
+				<h2>Tiendas Aliadas</h2>
 				<Tarjetas arreglo={this.state.tiendas} marca="tiendas" />
 			</div>
 		);
