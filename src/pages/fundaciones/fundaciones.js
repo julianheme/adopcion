@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import styles from "./fundaciones.module.css";
 import Tarjetas from "../../components/tarjetas/tarjetas";
+import Footer from "../../components/banners/footer/footer";
 
 export default class FundacionesP extends React.Component {
 	constructor() {
@@ -22,8 +23,11 @@ export default class FundacionesP extends React.Component {
 	render() {
 		return (
 			<div className={styles.main}>
-				<h1>Fundaciones Aliadas</h1>
-				<Tarjetas arreglo={this.state.fundaciones} marca="fundaciones" />
+				<div className={styles.wrapper}>
+					<h1>Fundaciones Aliadas</h1>
+					<Tarjetas arreglo={this.state.fundaciones} marca="fundaciones" />
+				</div>
+				<Footer />
 			</div>
 		);
 	}
