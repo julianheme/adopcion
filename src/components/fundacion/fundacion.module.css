@@ -10,6 +10,7 @@
 	height: auto;
 	border-radius: 10px;
 	padding: 10px;
+	background: #ffe782;
 	box-shadow: 0px 3px 6px #00000029;
 	display: inline-block;
 	vertical-align: middle;
@@ -31,9 +32,7 @@
 
 .txt {
 	width: 300px;
-	background: #eee;
 	border-radius: 10px;
-	box-shadow: 0px 3px 6px #00000029;
 	text-align: center;
 	border-top-right-radius: 0;
 	border-top-left-radius: 0;
@@ -51,6 +50,4 @@
 	margin: 0;
 	padding: 0;
 	border-radius: 10px;
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
 }
