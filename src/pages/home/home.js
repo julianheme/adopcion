@@ -10,9 +10,14 @@ export default class Home extends React.Component {
 	constructor() {
 		super();
 		this.state = { fundaciones: [], tiendas: [] };
+		this.start = React.createRef();
+		this.fundaciones = React.createRef();
+		this.tiendas = React.createRef();
+		this.contacto = React.createRef();
 	}
 
 	componentDidMount() {
+		let scrollTo = this.props.location.hash;
 		axios
 			.get("https://api.npoint.io/0f9ca95d1058038e320a", {})
 			.then((res) => {
@@ -22,15 +27,37 @@ export default class Home extends React.Component {
 			.catch((error) => {
 				console.log(error);
 			});
+		if (scrollTo === "#fundaciones") {
+			window.scrollTo({ top: this.fundaciones.current.offsetTop - 50, behavior: "smooth" });
+		} else if (scrollTo === "#tiendas") {
+			window.scrollTo({ top: this.tiendas.current.offsetTop - 50, behavior: "smooth" });
+		} else if (scrollTo === "#contacto") {
+			window.scrollTo({ top: this.contacto.current.offsetTop - 50, behavior: "smooth" });
+		} else {
+			window.scrollTo({ top: this.start.current.offsetTop - 50, behavior: "smooth" });
+		}
+	}
+	componentDidUpdate() {
+		let scrollTo = this.props.location.hash;
+		if (scrollTo === "#fundaciones") {
+			window.scrollTo({ top: this.fundaciones.current.offsetTop - 50, behavior: "smooth" });
+		} else if (scrollTo === "#tiendas") {
+			window.scrollTo({ top: this.tiendas.current.offsetTop - 50, behavior: "smooth" });
+		} else if (scrollTo === "#contacto") {
+			window.scrollTo({ top: this.contacto.current.offsetTop - 50, behavior: "smooth" });
+		} else {
+			window.scrollTo({ top: this.start.current.offsetTop - 50, behavior: "smooth" });
+		}
 	}
 	render() {
 		return (
-			<div className={styles.main}>
+			<div className={styles.main} ref={this.start}>
 				<BannerP />
-				<h2>Fundaciones Aliadas</h2>
+				<h2 ref={this.fundaciones}>Fundaciones Aliadas</h2>
 				<Fundaciones fundaciones={this.state.fundaciones} />
-				<h2>Tiendas Aliadas</h2>
+				<h2 ref={this.tiendas}>Tiendas Aliadas</h2>
 				<Tiendas tiendas={this.state.tiendas} />
+				<span ref={this.contacto} />
 				<Contactanos titulo={"Contáctanos"} titulo2={"Quienes somos"} />
 			</div>
 		);

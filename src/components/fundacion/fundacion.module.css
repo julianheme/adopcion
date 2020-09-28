@@ -5,6 +5,11 @@
 	row-gap: 50px;
 }
 
+.link {
+	text-decoration: none;
+	color: #5b2018;
+}
+
 .tarjeta {
 	width: 300px;
 	height: auto;
