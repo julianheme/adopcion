@@ -2,6 +2,10 @@
   width: 1440px;
   margin: auto;
 }
+@font-face {
+  font-family: Casual;
+  src: './fonts/dom-casual-bt.tff';
+}
 
 body {
   margin: 0;
