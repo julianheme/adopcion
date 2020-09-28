@@ -36,7 +36,7 @@ export default class Home extends React.Component {
 				{console.log(this.state.tiendas)}
 				<BannerP />
 
-				<Display title={"Fundaciones Aliadas"} link={"/fundaciones"}>
+				<Display title={"Fundaciones Aliadas"} link={"/fundaciones"} bg={'white'}>
 					{this.shuffledF.map((fundacion, index) => {
 						return (
 							<Tarjeta
@@ -55,7 +55,7 @@ export default class Home extends React.Component {
 						return <Tarjeta nombre={pet.nombre} imagen={pet.imagen} key={index} id={pet.id} marca="pets" />;
 					})}
 				</div>
-				<Display title={"Tiendas Aliadas"} link={"/tiendas"}>
+				<Display title={"Tiendas Aliadas"} link={"/tiendas"} bg={'white'}>
 					{this.shuffledT.map((tienda, index) => {
 						return (
 							<Tarjeta
