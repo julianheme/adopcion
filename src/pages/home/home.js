@@ -7,6 +7,7 @@ import styles from "./home.module.css";
 import Tiendas from "../../components/tienda/tiendas";
 import Display from "../../components/banners/display/display";
 import Fundacion from "../../components/fundacion/fundacion";
+import Tarjetas from "../../components/tarjetas/tarjetas";
 
 export default class Home extends React.Component {
 	constructor() {
@@ -30,16 +31,16 @@ export default class Home extends React.Component {
 			<div className={styles.main}>
 				<h1>Pets by Zeri</h1>
 				<BannerP />
-				<Display title={'Fundaciones Aliadas'}>
-					{props.fundaciones.map((fundacion, index) => {
+				<Display title={"Fundaciones Aliadas"}>
+					{this.state.fundaciones.map((fundacion, index) => {
 						return <Fundacion nombre={fundacion.nombre} imagen={fundacion.imagen} key={index} id={index} />;
 					})}
 				</Display>
 				<h2 ref={this.fundaciones}>Fundaciones Aliadas</h2>
-				<Fundaciones fundaciones={this.state.fundaciones} />
+				<Tarjetas arreglo={this.state.fundaciones} marca="fundaciones" />
 
 				<h2 ref={this.tiendas}>Tiendas Aliadas</h2>
-				<Tiendas tiendas={this.state.tiendas} />
+				<Tarjetas arreglo={this.state.tiendas} marca="tiendas" />
 			</div>
 		);
 	}
