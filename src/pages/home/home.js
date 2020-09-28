@@ -31,7 +31,7 @@ export default class Home extends React.Component {
 		return (
 			<div className={styles.main}>
 				<BannerP />
-				<Display title={"Fundaciones Aliadas"}>
+				<Display title={"Fundaciones Aliadas"} link={'/fundaciones'}>
 					{this.state.fundaciones.map((fundacion, index) => {
 						return <Fundacion nombre={fundacion.nombre} imagen={fundacion.imagen} key={index} id={index} />;
 					})}
@@ -39,8 +39,11 @@ export default class Home extends React.Component {
 				<h2 ref={this.fundaciones}>Fundaciones Aliadas</h2>
 				<Tarjetas arreglo={this.state.fundaciones} marca="fundaciones" />
 
-				<h2 ref={this.tiendas}>Tiendas Aliadas</h2>
-				<Tarjetas arreglo={this.state.tiendas} marca="tiendas" />
+				<Display title={"Tiendas Aliadas"} link={'/tiendas'}>
+					{this.state.tiendas.map((fundacion, index) => {
+						return <Fundacion nombre={fundacion.nombre} imagen={fundacion.imagen} key={index} id={index} />;
+					})}
+				</Display>
 			</div>
 		);
 	}
