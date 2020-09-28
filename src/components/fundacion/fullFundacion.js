@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
+import style from './fundacion.module.css'
+import FullImage from "../banners/fullImage/fullImage";
 
 class FullFundacion extends React.Component {
 	constructor() {
@@ -23,10 +25,14 @@ class FullFundacion extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<img src={this.state.fundacion.imagen} />
-				<h2>{this.state.fundacion.nombre}</h2>
+			<div className={style.full}>
+				<FullImage image={this.state.fundacion.imagen}>
+					<h2 className={style.title}>{this.state.fundacion.nombre}</h2>
+				</FullImage>
+				<div className={style.info}>
+
 				<p>{this.state.fundacion.descripcion}</p>
+				</div>
 			</div>
 		);
 	}

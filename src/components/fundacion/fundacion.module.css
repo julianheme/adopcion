@@ -51,3 +51,23 @@
 	padding: 0;
 	border-radius: 10px;
 }
+
+@media screen and (max-width: 599px) {
+	.full{
+		width: 100%;
+	}
+	.title{
+		width: 100vw;
+		margin-top: 0;
+		transform: translateY(100%);
+	}
+
+}
+
+@media screen and (min-width: 600px) and (max-width: 1199px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+
+}
