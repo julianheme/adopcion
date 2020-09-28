@@ -1,16 +1,25 @@
 .navbar {
 	width: 100%;
+	max-width: 1440px;
 	position: fixed;
 	top: 0;
-	left: 0;
 	margin: auto;
 	padding: 0;
 	z-index: 10;
 	background: #ffe782;
 }
 
+.navLogo {
+	justify-items: right;
+	width: auto;
+}
+
+.logoImg {
+	width: 50px;
+}
+
 .navList {
-	width: 97%;
+	width: 100%;
 	display: inline-flex;
 	list-style: none;
 	padding: 10px;
