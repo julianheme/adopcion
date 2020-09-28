@@ -2,3 +2,7 @@ html {
 	max-width: 1440px;
 	margin: auto;
 }
+
+.spacer{
+	margin-top: 96px;
+}

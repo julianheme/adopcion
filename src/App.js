@@ -7,13 +7,14 @@ import FundacionesP from "./pages/fundaciones/fundaciones";
 import TiendasP from "./pages/tiendas/tiendas";
 import ContactoP from "./pages/contacto/contacto";
 import FullPet from "./components/pet/fullPet";
+import styles from './app.module.css'
 
 function App(props) {
 	return (
 		<Router>
 			<div>
 				<NavBar />
-				<div style={{ marginTop: "96px" }} />
+				<div className={styles.spacer} />
 				<Switch>
 					<Route path="/fundaciones/:id" component={FullFundacion} />
 					<Route path="/pets/:id" component={FullPet} />
