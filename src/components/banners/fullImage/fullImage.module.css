@@ -1,0 +1,16 @@
+@media screen and (max-width: 599px) {
+    .main {
+        width: fit-content;
+        height: 200px;
+        background-size: 100% 100%;
+    }
+
+}
+
+@media screen and (min-width: 600px) and (max-width: 1199px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+
+}
