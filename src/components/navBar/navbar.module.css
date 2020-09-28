@@ -1,0 +1,42 @@
+.navbar {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: auto;
+	padding: 0;
+	z-index: 10;
+	background: #ffe782;
+}
+
+.navList {
+	width: 97%;
+	display: inline-flex;
+	list-style: none;
+	padding: 10px;
+}
+
+.navItem {
+	text-align: center;
+	transition-property: border-bottom;
+	transition: transform 1s ease-in-out;
+}
+
+.navItem a {
+	font-family: Casual;
+	text-decoration: none;
+	font-size: 24px;
+	color: #5b2018;
+}
+
+.navItem:after {
+	display: block;
+	content: "";
+	border-bottom: solid 2px #5b2018;
+	transform: scaleX(0);
+	transition: transform 250ms ease-in-out;
+}
+
+.navItem:hover:after {
+	transform: scaleX(0.3);
+}
