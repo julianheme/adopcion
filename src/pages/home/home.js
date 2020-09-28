@@ -14,6 +14,7 @@ export default class Home extends React.Component {
 	constructor() {
 		super();
 		this.state = { fundaciones: [], tiendas: [] };
+		this.shuffled = [];
 	}
 
 	componentDidMount() {
@@ -21,6 +22,7 @@ export default class Home extends React.Component {
 			.get("https://api.npoint.io/0f9ca95d1058038e320a", {})
 			.then((res) => {
 				const data = res.data;
+				this.shuffled = data.fundaciones.sort(() => Math.random() - Math.random()).slice(0, 4);
 				this.setState({ fundaciones: data.fundaciones, tiendas: data.tiendas });
 			})
 			.catch((error) => {
@@ -32,7 +34,7 @@ export default class Home extends React.Component {
 			<div className={styles.main}>
 				<BannerP />
 				<Display title={"Fundaciones Aliadas"}>
-					{this.state.fundaciones.map((fundacion, index) => {
+					{this.shuffled.map((fundacion, index) => {
 						return <Fundacion nombre={fundacion.nombre} imagen={fundacion.imagen} key={index} id={index} />;
 					})}
 				</Display>
