@@ -8,6 +8,7 @@ import Tiendas from "../../components/tienda/tiendas";
 import Display from "../../components/banners/display/display";
 import Fundacion from "../../components/fundacion/fundacion";
 import CircleImage from "../../components/banners/display/content/circleImage";
+import Tarjetas from "../../components/tarjetas/tarjetas";
 
 export default class Home extends React.Component {
 	constructor() {
@@ -30,20 +31,16 @@ export default class Home extends React.Component {
 		return (
 			<div className={styles.main}>
 				<BannerP />
-				<Display title={'Fundaciones Aliadas'}>
-					<CircleImage/>
-					<CircleImage/>
-					<CircleImage/>
-					<CircleImage/>
+				<Display title={"Fundaciones Aliadas"}>
+					{this.state.fundaciones.map((fundacion, index) => {
+						return <Fundacion nombre={fundacion.nombre} imagen={fundacion.imagen} key={index} id={index} />;
+					})}
 				</Display>
 				<h2 ref={this.fundaciones}>Fundaciones Aliadas</h2>
-				<Fundaciones fundaciones={this.state.fundaciones} />
-				<Display title={'Tiendas Aliadas'}>
-					<CircleImage/>
-					<CircleImage/>
-					<CircleImage/>
-					<CircleImage/>
-				</Display>
+				<Tarjetas arreglo={this.state.fundaciones} marca="fundaciones" />
+
+				<h2 ref={this.tiendas}>Tiendas Aliadas</h2>
+				<Tarjetas arreglo={this.state.tiendas} marca="tiendas" />
 			</div>
 		);
 	}
