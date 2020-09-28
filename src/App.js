@@ -1,16 +1,19 @@
 import React from "react";
-import Titulo from "./components/titulo";
-import BannerP from "./components/banners/bannerP";
-import Contacto from "./pages/contacto/contacto";
 import styles from "./app.module.css";
+import FullFundacion from "./components/fundacion/fullFundacion";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/home/home";
 
-function App() {
+function App(props) {
 	return (
-		<div className={styles.main}>
-			<BannerP />
-			<Titulo titulo="Adopción" />
-			<Contacto />
-		</div>
+		<Router>
+			<div className={styles.main}>
+				<Switch>
+					<Route path="/fundaciones/:id" component={FullFundacion} />
+					<Route path="/" component={Home} />
+				</Switch>
+			</div>
+		</Router>
 	);
 }
 
