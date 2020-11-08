@@ -10,7 +10,7 @@ import Footer from "../../components/banners/footer/footer";
 export default class Home extends React.Component {
 	constructor() {
 		super();
-		this.state = { fundaciones: [], tiendas: [], mascotas: [] };
+		this.state = { fundaciones: [], tiendas: [] };
 		this.shuffledF = [];
 		this.shuffledT = [];
 		this.shuffledM = [];
@@ -58,12 +58,6 @@ export default class Home extends React.Component {
 						);
 					})}
 				</Display>
-				<h2>Pets</h2>
-				<div className={styles.div}>
-					{this.state.mascotas.map((pet, index) => (
-						<Tarjeta nombre={pet.nombre} imagen={pet.imagen} key={index} id={index} marca="pets" />
-					))}
-				</div>
 				<Display title={"Tiendas Aliadas"} link={"/tiendas"} bg={"white"}>
 					{this.shuffledT.map((tienda, index) => {
 						return (

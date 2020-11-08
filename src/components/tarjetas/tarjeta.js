@@ -15,7 +15,7 @@ export default function Fundacion(props) {
 				</a>
 			) : (
 				<Link
-					to={`/${props.marca}/${props.id}`}
+					to={props.marca === "pets" ? `/${props.marca}/${props.id}_${props.petId}` : `/${props.marca}/${props.id}`}
 					target={props.marca === "tiendas" ? "_blank" : ""}
 					className={styles.link}
 				>
