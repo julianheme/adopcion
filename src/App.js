@@ -7,7 +7,10 @@ import FundacionesP from "./pages/fundaciones/fundaciones";
 import TiendasP from "./pages/tiendas/tiendas";
 import ContactoP from "./pages/contacto/contacto";
 import FullPet from "./components/pet/fullPet";
-import styles from './app.module.css'
+import styles from "./app.module.css";
+import Login from "./pages/Login/login";
+import SignUp from "./pages/SignUp/signUp";
+import AdminLogin from "./pages/AdminLogin/adminLogin";
 
 function App(props) {
 	return (
@@ -21,6 +24,9 @@ function App(props) {
 					<Route path="/fundaciones" component={FundacionesP} />
 					<Route path="/tiendas" component={TiendasP} />
 					<Route path="/contacto" component={ContactoP} />
+					<Route path="/login" component={Login} />
+					<Route path="/signUp" component={SignUp} />
+					<Route path="/adminLogin" component={AdminLogin} />
 					<Route path="/" component={Home} />
 				</Switch>
 			</div>

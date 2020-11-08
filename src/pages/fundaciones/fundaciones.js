@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axios from "../../instances/axios-pets";
 import styles from "./fundaciones.module.css";
 import Tarjetas from "../../components/tarjetas/tarjetas";
 import Footer from "../../components/banners/footer/footer";
@@ -11,15 +11,17 @@ export default class FundacionesP extends React.Component {
 	}
 	componentDidMount() {
 		axios
-			.get("https://api.npoint.io/0f9ca95d1058038e320a", {})
+			.get("/.json", {})
 			.then((res) => {
 				const data = res.data;
-				this.setState({ fundaciones: data.fundaciones });
+				console.log(data);
+				this.setState({ fundaciones: data.Fundaciones });
 			})
 			.catch((error) => {
 				console.log(error);
 			});
 	}
+
 	render() {
 		return (
 			<div className={styles.main}>

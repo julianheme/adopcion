@@ -4,11 +4,13 @@ import styles from "./tarjeta.module.css";
 
 export default function Tarjetas(props) {
 	let tarjetas = [];
+
 	if (props.marca === "fundaciones") {
 		tarjetas = props.arreglo;
 	} else if (props.marca === "tiendas") {
 		tarjetas = props.arreglo;
 	}
+
 	return (
 		<section className={styles.fundGrid}>
 			{tarjetas.map((tarjeta, index) => {
@@ -19,7 +21,7 @@ export default function Tarjetas(props) {
 						key={index}
 						id={tarjeta.id}
 						marca={props.marca}
-						link={tarjeta.Link}
+						link={tarjeta.link}
 					/>
 				);
 			})}

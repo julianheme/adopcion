@@ -22,6 +22,9 @@ export default function NavBar(props) {
 				<li className={styles.navItem}>
 					<Link to="/contacto">Contacto</Link>
 				</li>
+				<li className={styles.navItem}>
+					<Link to="/login">Login</Link>
+				</li>
 			</ul>
 		</nav>
 	);

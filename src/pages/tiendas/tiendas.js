@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axios from "../../instances/axios-pets";
 import styles from "./tiendas.module.css";
 import Tarjetas from "../../components/tarjetas/tarjetas";
 import Footer from "../../components/banners/footer/footer";
@@ -9,17 +9,19 @@ export default class TiendasP extends React.Component {
 		super();
 		this.state = { tiendas: [] };
 	}
+
 	componentDidMount() {
 		axios
-			.get("https://api.npoint.io/0f9ca95d1058038e320a", {})
+			.get("/.json", {})
 			.then((res) => {
 				const data = res.data;
-				this.setState({ tiendas: data.tiendas });
+				this.setState({ tiendas: data.Tiendas });
 			})
 			.catch((error) => {
 				console.log(error);
 			});
 	}
+
 	render() {
 		return (
 			<div className={styles.main}>
