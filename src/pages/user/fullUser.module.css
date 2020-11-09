@@ -1,3 +1,10 @@
+.ui {
+	display: grid;
+	grid-template-columns: repeat(2, 50%);
+	column-gap: 10%;
+	padding: 3%;
+}
+
 .list {
 	width: 90%;
 	height: 72%;
@@ -9,12 +16,12 @@
 
 .item {
 	width: 100%;
-	height: 70px;
+	height: 100px;
 	display: grid;
-	grid-template-columns: repeat(2, 50%);
+	grid-template-columns: repeat(3, 33%);
 	margin: 3% auto;
-	padding: 10px;
-	background: #eee;
+	padding: 0;
+	background: #ffe782;
 	border-radius: 10px;
 	box-shadow: 0px 3px 6px #00000029;
 	justify-items: right;
@@ -22,22 +29,20 @@
 
 .text {
 	width: 100%;
-	margin: 0;
-	padding: 10px;
+	color: #5b2018;
 }
 
-.admiBtn {
-	width: 50px;
-	height: 50px;
-	margin-right: 10px;
-	border: 0;
-	border-radius: 15px;
+.petImg {
+	height: 100px;
+	object-fit: cover;
 }
 
-.btnGrid {
-	width: 30%;
-	margin: 0;
-	padding: 0;
-	display: grid;
-	grid-template-columns: repeat(2, auto);
+.deleteBtn {
+	color: #5b2018;
+	cursor: pointer;
+}
+
+.logOutBtn {
+	color: #5b2018;
+	cursor: pointer;
 }

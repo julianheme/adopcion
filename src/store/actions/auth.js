@@ -84,7 +84,6 @@ export const logIn = (authData, onSuccessCallback) => {
 				};
 				userSession = JSON.stringify(userSession);
 				localStorage.setItem("userSession", userSession);
-				//dispatch(users.fetchUser(uid));
 
 				dispatch(saveSession(email, token, uid));
 				dispatch(endAuthLoading());
@@ -109,7 +108,6 @@ export const logOut = () => {
 			.auth()
 			.signOut()
 			.then(function () {
-				// Sign-out successful.
 				console.log("logout");
 				localStorage.removeItem("userSession");
 				dispatch(cerrarSesion());

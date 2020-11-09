@@ -9,19 +9,10 @@ const getUser = (state, action) => {
 	});
 };
 
-const getPets = (state, action) => {
-	const { payload } = action;
-	return updateObject(state, {
-		...payload,
-	});
-};
-
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ActionTypes.GET_USER:
 			return getUser(state, action);
-		case ActionTypes.GET_PETS:
-			return getPets(state, action);
 		default:
 			return state;
 	}
