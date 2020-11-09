@@ -85,7 +85,7 @@ class Login extends React.Component {
 								<p className={styles.txt}>Usuario</p>
 								<input
 									className={styles.lInput}
-									type="text"
+									type="email"
 									onChange={(e) => {
 										this.handleChange(e, "userName");
 									}}

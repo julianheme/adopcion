@@ -31,7 +31,7 @@ const cerrarSesion = () => {
 	};
 };
 
-const signUp = (userName, token, localId) => {
+const SignUp = (userName, token, localId) => {
 	return {
 		type: ActionTypes.SIGN_UP,
 		payload: {
@@ -39,6 +39,30 @@ const signUp = (userName, token, localId) => {
 			idToken: token,
 			localId: localId,
 		},
+	};
+};
+
+export const signUp = (authData, onSuccessCallback) => {
+	return (dispatch) => {
+		const { email, password } = authData;
+		firebase
+			.auth()
+			.createUserWithEmailAndPassword(email, password)
+			.then(function (response) {
+				console.log(response);
+				const IdUser = response.user.uid;
+				//dispatch(users.addPaciente(user, IdUser, uid));
+				if (onSuccessCallback) {
+					onSuccessCallback();
+				}
+			})
+			.catch(function (error) {
+				// Handle Errors here.
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				dispatch(errors.saveError(errorMessage));
+				// ...
+			});
 	};
 };
 

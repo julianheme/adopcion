@@ -1,83 +1,111 @@
 import React from "react";
 import styles from "./signUp.module.css";
 import registerImg from "../../imagenes/register.png";
+import Swal from "sweetalert2";
+import { connect } from "react-redux";
+import * as actionCreators from "../../store/actions";
 
-export default class SignUp extends React.Component {
-	render() {
-		const l = {
-			main: {
-				background: "#fff",
-				padding: "3%",
-			},
-			titulo: {
-				fontSize: "90px",
-				fontFamily: "Cookie-Regular",
-				textAlign: "center",
-				fontWeight: "normal",
-				padding: "0% 3%",
-			},
-			logGrid: {
-				display: "grid",
-				gridTemplateColumns: "repeat(2, 50%)",
-			},
-			imagen: {
-				width: "100%",
-				heigth: "auto",
-				padding: "1.5% 3% 3% 3%",
-			},
-			logDiv: {
-				marginLeft: "30%",
-				display: "flex",
-				listStyle: "none",
-			},
-			logCreate: {
-				display: "flex",
-				flexDirection: "row",
-				listStyle: "none",
-				width: "300px",
-				padding: "0",
-				borderBottom: "solid #c8cccc 1px",
-			},
-			lItem: { margin: "2%", padding: "10px" },
-			lItem2: { margin: "auto", padding: "3px" },
-			lInput: { margin: "auto", padding: "5px", width: "270px" },
-			txt: { margin: "0", padding: "0", color: "#919797" },
-			terms: { margin: "0", padding: "0", fontSize: "12px", color: "#fe1177" },
+class SignUp extends React.Component {
+	state = {
+		isUserLoggedIn: "",
+		userName: "",
+		password: "",
+		error: "",
+	};
+
+	componentDidUpdate() {
+		if (this.state.isUserLoggedIn) {
+			this.props.history.push("/");
+		} else if (this.state.error !== "") {
+			Swal.fire({
+				title: "Ha ocurrido un error",
+				text: this.state.error,
+				icon: "error",
+				confirmButtonText: "Entendido",
+			}).then((result) => {
+				this.props.onClearError();
+			});
+		}
+	}
+
+	componentWillReceiveProps(nextState) {
+		this.setState({
+			isUserLoggedIn: nextState.isUserLoggedIn,
+			error: nextState.error,
+		});
+	}
+
+	handleSubmit = (e) => {
+		e.preventDefault();
+		const userData = {
+			email: this.state.userName,
+			password: this.state.password,
 		};
+
+		this.props.onUserLogin(userData, () => {
+			this.props.history.push(`/`);
+		});
+	};
+
+	handleChange = (e, target) => {
+		var updatedState = {
+			...this.state,
+		};
+		updatedState[target] = e.target.value;
+		this.setState({
+			userName: updatedState.userName,
+			password: updatedState.password,
+		});
+	};
+
+	render() {
 		return (
-			<div style={l.main}>
-				<h1 style={l.titulo}>Crear Cuenta</h1>
-				<div style={l.logGrid}>
+			<div className={styles.main}>
+				<h1 className={styles.titulo}>Crear Cuenta</h1>
+				<div className={styles.logGrid}>
 					<div>
-						<img style={l.imagen} src={registerImg} />
+						<img className={styles.imagen} src={registerImg} />
 					</div>
-					<div style={l.logDiv}>
-						<form>
-							<ul style={l.logCreate}>
-								<li style={l.lItem}>
+					<div className={styles.logDiv}>
+						<form onSubmit={this.handleSubmit}>
+							<ul className={styles.logCreate}>
+								<li className={styles.lItem}>
 									<a href="/login">
 										<a>Iniciar Sesión</a>
 									</a>
 								</li>
-								<li style={l.lItem}>
+								<li className={styles.lItem}>
 									<a href="/signUp">
 										<a>Crear Cuenta</a>
 									</a>
 								</li>
 							</ul>
-							<li style={l.lItem2}>
-								<p style={l.txt}>Correo</p>
-								<input style={l.lInput} type="email" />
+							<li className={styles.lItem2}>
+								<p className={styles.txt}>Correo</p>
+								<input
+									className={styles.lInput}
+									type="email"
+									onChange={(e) => {
+										this.handleChange(e, "userName");
+									}}
+								/>
 							</li>
-							<li style={l.lItem2}>
-								<p style={l.txt}>Contraseña</p>
-								<input style={l.lInput} type="password" />
+							<li className={styles.lItem2}>
+								<p className={styles.txt}>Contraseña</p>
+								<input
+									className={styles.lInput}
+									type="password"
+									onChange={(e) => {
+										this.handleChange(e, "password");
+									}}
+								/>
 							</li>
 
-							<li style={l.lItem2}>
+							<li className={styles.lItem2}>
 								<input type="checkbox" />
-								<a style={l.terms}>Aceptar términos y condiciones</a>
+								<a className={styles.terms}>Aceptar términos y condiciones</a>
 							</li>
+							<button type="submit">registrarme</button>
 						</form>
 					</div>
 				</div>
@@ -85,3 +113,21 @@ export default class SignUp extends React.Component {
 		);
 	}
 }
+
+const mapStateToProps = (state) => {
+	return {
+		isUserLoggedIn: state.authStore.isUserLoggedIn,
+		uid: state.authStore.user.uid,
+		loadingAuth: state.authStore.loadingAuth,
+		error: state.errorStore.error,
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		onUserLogin: (authData, onSuccessCallback) => dispatch(actionCreators.signUp(authData, onSuccessCallback)),
+		onClearError: () => dispatch(actionCreators.clearError()),
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
