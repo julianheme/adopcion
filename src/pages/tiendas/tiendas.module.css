@@ -1,7 +1,11 @@
 h1 {
 	text-align: center;
-	font-family: Casual;
+	font-family: Casual, serif;
+	color: #5b2018;
 	font-size: 96px;
+	padding-top: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
 
 .main {

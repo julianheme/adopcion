@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import loginImg from "../../imagenes/Login.png";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
+import Footer from "../../components/banners/footer/footer";
 
 class Login extends React.Component {
 	state = {
@@ -62,7 +63,7 @@ class Login extends React.Component {
 	render() {
 		return (
 			<div className={styles.main}>
-				<h1 className={styles.titulo}>Iniciar Sesión</h1>
+				<h1>Iniciar Sesión</h1>
 				<div className={styles.logGrid}>
 					<div>
 						<img className={styles.imagen} src={loginImg} />
@@ -101,10 +102,11 @@ class Login extends React.Component {
 									}}
 								/>
 							</li>
-							<button type="submit">Ingresar</button>
+							<button className={`hvr-grow ${styles.button}`} type="submit">Ingresar</button>
 						</form>
 					</div>
 				</div>
+				<Footer/>
 			</div>
 		);
 	}

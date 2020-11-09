@@ -13,12 +13,12 @@
 @media screen and (min-width: 1200px) {
     .grid {
         text-align: center;
-        padding: 3%;
+        padding: 0 3% 3%;
     }
 
     .input {
         width: 40%;
-        margin-bottom: 1%;
+        margin-bottom: 2%;
         padding: 1%;
         border-radius: 10px;
         border: none;

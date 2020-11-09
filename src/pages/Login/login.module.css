@@ -1,22 +1,15 @@
 .main {
 	background: #fff;
-	padding: 3%;
-}
-.titulo {
-	font-size: 90px;
-	font-family: Cookie-Regular;
-	text-align: center;
-	font-weight: normal;
-	padding: 0% 3%;
 }
 .logGrid {
 	display: grid;
 	grid-template-columns: repeat(2, 50%);
 }
 .imagen {
-	width: 100%;
+	width: 70%;
 	height: auto;
-	padding: 1.5% 3% 3% 3%;
+	margin: auto;
+	transform: translateX(30%);
 }
 .logDiv {
 	margin-left: 30%;
@@ -40,9 +33,15 @@
 	padding: 3px;
 }
 .lInput {
-	margin: auto;
-	padding: 5px;
-	width: 270px;
+	width: 94%;
+	margin-bottom: 2%;
+	padding: 3%;
+	border-radius: 10px;
+	border: none;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);
+	resize: none;
+	font-family: arial, serif;
+	outline: none;
 }
 .txt {
 	margin: 0;
@@ -52,4 +51,26 @@
 .forgot {
 	font-size: 12px;
 	color: #fe1177;
+}
+
+@media screen and (max-width: 599px) {
+
+}
+
+@media screen and (min-width: 600px) and (max-width: 1199px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+	.button {
+		background-color: #ffe782;
+		padding: 3px 12px;
+		font-family: Casual, serif;
+		font-size: 24px;
+		border: none;
+		border-radius: 10px;
+		outline: none;
+		cursor: pointer;
+		margin-top: 10px;
+	}
 }

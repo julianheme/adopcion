@@ -68,15 +68,17 @@ class FullPet extends React.Component {
 		return (
 			<div>
 				<div className={Style.grid}>
+					<div className={Style.item}>
+						<h2 className={Style.title}>{this.state.pet.nombre}</h2>
+						<p>{this.state.pet.descripcion}</p>
+						<p className={Style.p}><b>Edad:</b> {this.state.pet.edad}</p>
+						<p className={Style.p}><b>Género:</b> {this.state.pet.genero}</p>
+						<p className={Style.p}><b>Descripción: </b>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae quam id ex condimentum auctor nec placerat sem. Nulla luctus, ligula sed condimentum sollicitudin, leo ex dictum magna, quis volutpat ex lacus et orci. Proin et dui ante. Etiam bibendum purus et iaculis faucibus. Maecenas sodales, augue vel consectetur rutrum, magna nisl suscipit neque, in dapibus tellus enim ut neque. Maecenas sed vulputate dolor. Morbi ligula nunc, consequat in erat id, rutrum aliquet leo. Aenean varius finibus diam. Sed vitae metus posuere, suscipit lorem ac, maximus turpis. Proin viverra rhoncus est, vel fringilla ante eleifend eget.</p>
+						<button className={`hvr-grow ${Style.button}`} onClick={this.handleClick}>Estoy interesado!</button>
+					</div>
 					<div>
 						<img className={Style.img} src={this.state.pet.imagen} alt={this.state.pet.imagen} />
-					</div>
-					<div className={Style.item}>
-						<h2>{this.state.pet.nombre}</h2>
-						<p>{this.state.pet.descripcion}</p>
-						<p>Edad: {this.state.pet.edad}</p>
-						<p>Genero: {this.state.pet.genero}</p>
-						<button onClick={this.handleClick}>Estoy interesado!</button>
 					</div>
 				</div>
 				<Footer />
