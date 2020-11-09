@@ -9,3 +9,5 @@ export const CLEAR_ERROR = "CLEAR_ERROR";
 
 export const GET_USER = "GET_USER";
 export const ADD_USER = "ADD_USER";
+
+export const GET_PETS = "GET_PETS";

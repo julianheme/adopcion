@@ -1,8 +1,10 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import axios from "../../instances/axios-pets";
 import Style from "./pet.module.css";
 import Footer from "../banners/footer/footer";
+import firebase from "../../instances/firebase";
+import { connect } from "react-redux";
+import * as actionCreators from "../../store/actions";
 
 class FullPet extends React.Component {
 	constructor() {
@@ -29,6 +31,39 @@ class FullPet extends React.Component {
 			});
 	}
 
+	handleClick = () => {
+		const database = firebase.database();
+
+		var param = this.props.match.params.id;
+		var resp = param.split("_");
+		const id = resp[0];
+		if (this.props.isUserLoggedIn) {
+			let uid = this.props.uid;
+			axios
+				.get(`/Fundaciones.json`, {})
+				.then((res) => {
+					const data = res.data;
+					data.map((item, i) =>
+						item.id == id
+							? item.Pets.map((pet, index) =>
+									resp[1] == pet.id
+										? database
+												.ref("Fundaciones/" + i + "/Pets/" + index + "/Interesados/" + uid + "/")
+												.set(this.props.userName) &&
+										  this.props.onUserClick(index, { nombre: pet.nombre, imagen: pet.imagen }, uid)
+										: 'console.log("error ID")'
+							  )
+							: ""
+					);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		} else {
+			this.props.history.push(`/login`);
+		}
+	};
+
 	render() {
 		return (
 			<div>
@@ -41,7 +76,7 @@ class FullPet extends React.Component {
 						<p>{this.state.pet.descripcion}</p>
 						<p>Edad: {this.state.pet.edad}</p>
 						<p>Genero: {this.state.pet.genero}</p>
-						<button>Estoy interesado!</button>
+						<button onClick={this.handleClick}>Estoy interesado!</button>
 					</div>
 				</div>
 				<Footer />
@@ -50,4 +85,18 @@ class FullPet extends React.Component {
 	}
 }
 
-export default withRouter(FullPet);
+const mapStateToProps = (state) => {
+	return {
+		isUserLoggedIn: state.authStore.isUserLoggedIn,
+		uid: state.authStore.user.uid,
+		userName: state.authStore.user.userName,
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		onUserClick: (petId, pet, uid) => dispatch(actionCreators.addPet(petId, pet, uid)),
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FullPet);

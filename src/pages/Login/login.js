@@ -15,7 +15,7 @@ class Login extends React.Component {
 
 	componentDidUpdate() {
 		if (this.state.isUserLoggedIn) {
-			this.props.history.push("/");
+			this.props.history.push(`/users/${this.props.uid}`);
 		} else if (this.state.error !== "") {
 			Swal.fire({
 				title: "Error",
@@ -118,6 +118,7 @@ const mapStateToProps = (state) => {
 		error: state.errorStore.error,
 	};
 };
+
 const mapDispatchToProps = (dispatch) => {
 	return {
 		onUserLogin: (authData, onSuccessCallback) => dispatch(actionCreators.logIn(authData, onSuccessCallback)),
