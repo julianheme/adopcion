@@ -66,19 +66,19 @@ class Login extends React.Component {
 				<h1>Iniciar Sesión</h1>
 				<div className={styles.logGrid}>
 					<div>
-						<img className={styles.imagen} src={loginImg} />
+						<img alt={'Imagen'} className={styles.imagen} src={loginImg} />
 					</div>
 					<div className={styles.logDiv}>
 						<form onSubmit={this.handleSubmit}>
 							<ul className={styles.logCreate}>
 								<li className={styles.lItem}>
 									<a activeClassName={styles.selected} href="/login">
-										<a>Iniciar Sesión</a>
+										<a className={styles.a}>Iniciar Sesión</a>
 									</a>
 								</li>
 								<li className={styles.lItem}>
-									<a activeClassName={styles.selected} href="/signUp">
-										<a>Crear Cuenta</a>
+									<a activeClassName={styles.selected} href="/signUp" selected>
+										<a className={styles.a}>Crear Cuenta</a>
 									</a>
 								</li>
 							</ul>

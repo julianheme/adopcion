@@ -30,10 +30,13 @@ class FullFundacion extends React.Component {
 		return (
 			<div className={style.full}>
 				<img className={style.banner} src={this.state.fundacion.imagen} alt={this.state.fundacion.imagen} />
+				<div className={style.main}>
 				<h2 className={style.title}>{this.state.fundacion.nombre}</h2>
 				<div className={style.info}>
 					<p>{this.state.fundacion.descripcion}</p>
 				</div>
+					<br/>
+					<hr/>
 				<h2>Pets</h2>
 				<div className={style.div}>
 					{this.state.mascotas.map((pet, index) => (
@@ -46,6 +49,7 @@ class FullFundacion extends React.Component {
 							marca="pets"
 						/>
 					))}
+				</div>
 				</div>
 			</div>
 		);

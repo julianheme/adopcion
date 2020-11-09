@@ -28,6 +28,21 @@
 	margin: 2%;
 	padding: 10px;
 }
+.a, .selected{
+	text-decoration: none;
+	font-family: Casual, serif;
+	text-decoration-color: transparent;
+}
+.a{
+	color: #5b2018;
+}
+.a:hover{
+	color: #ffe782;
+}
+.selected{
+	color: #ffe782;
+}
+
 .lItem2 {
 	margin: auto;
 	padding: 3px;

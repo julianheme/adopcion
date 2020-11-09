@@ -10,7 +10,7 @@ const Display = (props) => {
         style = Style.div
     }
     return (
-        <div className={style}>
+        <div className={Style.main}>
             <h2>{props.title}</h2>
             <div className={Style.grid}>
                 {props.children}

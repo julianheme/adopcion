@@ -6,6 +6,7 @@ import Footer from "../banners/footer/footer";
 
 const Contactanos = (props) => {
     return (
+        <div>
         <div className={Style.grid}>
             <h1>Contáctanos</h1>
             <form action="">
@@ -14,6 +15,7 @@ const Contactanos = (props) => {
                 <textarea className={Style.input} name="" id="" rows="10" placeholder={'Qué nos quieres decir'}/><br/>
                 <button className={`hvr-grow ${Style.button}`} type={"submit"}>Enviar</button>
             </form>
+        </div>
             <Footer/>
         </div>
     );

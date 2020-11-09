@@ -23,6 +23,6 @@ h1 {
 
 @media screen and (min-width: 1200px) {
 	.wrapper{
-		margin-bottom: 3%;
+		padding: 3% 3% 0;
 	}
 }

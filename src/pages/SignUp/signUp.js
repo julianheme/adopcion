@@ -4,6 +4,7 @@ import registerImg from "../../imagenes/register.png";
 import Swal from "sweetalert2";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
+import Footer from "../../components/banners/footer/footer";
 
 class SignUp extends React.Component {
 	state = {
@@ -58,8 +59,9 @@ class SignUp extends React.Component {
 
 	render() {
 		return (
+	<div>
 			<div className={styles.main}>
-				<h1 className={styles.titulo}>Crear Cuenta</h1>
+				<h1>Crear Cuenta</h1>
 				<div className={styles.logGrid}>
 					<div>
 						<img className={styles.imagen} src={registerImg} />
@@ -69,12 +71,12 @@ class SignUp extends React.Component {
 							<ul className={styles.logCreate}>
 								<li className={styles.lItem}>
 									<a href="/login">
-										<a>Iniciar Sesión</a>
+										<a className={styles.a}>Iniciar Sesión</a>
 									</a>
 								</li>
 								<li className={styles.lItem}>
 									<a href="/signUp">
-										<a>Crear Cuenta</a>
+										<a className={styles.a}>Crear Cuenta</a>
 									</a>
 								</li>
 							</ul>
@@ -119,15 +121,18 @@ class SignUp extends React.Component {
 								/>
 							</li>
 							<li className={styles.lItem2}>
-								<input type="checkbox" required />
-								<a className={styles.terms}>Es usted mayor de 21 años?</a>
+								<label htmlFor="confirm"><input type="checkbox" id={'confirm'} required />
+								<a className={styles.terms}>Es usted mayor de 21 años?</a></label>
 							</li>
-							<button type="submit">registrarme</button>
+							<button className={styles.button} type="submit">Registrarme</button>
 						</form>
 					</div>
 				</div>
 			</div>
+		<Footer/>
+	</div>
 		);
+
 	}
 }
 

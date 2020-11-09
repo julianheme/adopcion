@@ -1,6 +1,6 @@
 h1 {
 	text-align: center;
-	font-family: Casual;
+	font-family: Casual, serif;
 	font-size: 96px;
 }
 
@@ -8,6 +8,7 @@ h1 {
 	margin-top: 20px;
 	color: #5b2018;
 }
+
 
 @media screen and (max-width: 599px) {
 
@@ -19,6 +20,7 @@ h1 {
 
 @media screen and (min-width: 1200px) {
 	.wrapper{
-		margin-bottom: 3%;
+		padding: 3%;
+		padding-top: 0;
 	}
 }
