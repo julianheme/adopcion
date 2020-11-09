@@ -48,7 +48,6 @@ class SignUp extends React.Component {
 			...this.state,
 		};
 		updatedState[target] = e.target.value;
-		console.log(updatedState[target]);
 		this.setState({
 			userName: updatedState.userName,
 			password: updatedState.password,

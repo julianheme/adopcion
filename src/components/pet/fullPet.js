@@ -5,6 +5,7 @@ import Footer from "../banners/footer/footer";
 import firebase from "../../instances/firebase";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
+import Swal from "sweetalert2";
 
 class FullPet extends React.Component {
 	constructor() {
@@ -59,6 +60,7 @@ class FullPet extends React.Component {
 				.catch((error) => {
 					console.log(error);
 				});
+			Swal.fire("Mascota agregada", "Podrás ver las mascotas de tu interés en tu perfil", "success");
 		} else {
 			this.props.history.push(`/login`);
 		}

@@ -14,7 +14,6 @@ export default class FundacionesP extends React.Component {
 			.get("/.json", {})
 			.then((res) => {
 				const data = res.data;
-				console.log(data);
 				this.setState({ fundaciones: data.Fundaciones });
 			})
 			.catch((error) => {
