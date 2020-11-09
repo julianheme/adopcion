@@ -1,6 +1,7 @@
 import * as ActionTypes from "./ActionTypes";
 import firebase from "../../instances/firebase";
 import * as errors from "./error";
+import * as users from "./users";
 
 const startAuthLoading = () => {
 	return {
@@ -42,16 +43,15 @@ const SignUp = (userName, token, localId) => {
 	};
 };
 
-export const signUp = (authData, onSuccessCallback) => {
+export const signUp = (user, onSuccessCallback) => {
 	return (dispatch) => {
-		const { email, password } = authData;
 		firebase
 			.auth()
-			.createUserWithEmailAndPassword(email, password)
+			.createUserWithEmailAndPassword(user.email, user.password)
 			.then(function (response) {
 				console.log(response);
-				const IdUser = response.user.uid;
-				//dispatch(users.addPaciente(user, IdUser, uid));
+				const uid = response.user.uid;
+				dispatch(users.addUser(user, uid));
 				if (onSuccessCallback) {
 					onSuccessCallback();
 				}

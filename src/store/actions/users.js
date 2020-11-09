@@ -42,8 +42,8 @@ export const fetchUser = (uid) => {
 	};
 };
 
-export const addUser = (user, userid, uid) => {
+export const addUser = (user, uid) => {
 	return (dispatch) => {
-		database.ref("Users/" + userid).set(user);
+		database.ref("Users/" + uid).set(user);
 	};
 };

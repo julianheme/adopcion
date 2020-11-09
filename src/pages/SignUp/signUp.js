@@ -7,31 +7,22 @@ import * as actionCreators from "../../store/actions";
 
 class SignUp extends React.Component {
 	state = {
-		isUserLoggedIn: "",
 		userName: "",
 		password: "",
-		error: "",
+		telefono: "",
+		direccion: "",
 	};
 
 	componentDidUpdate() {
 		if (this.state.isUserLoggedIn) {
 			this.props.history.push("/");
-		} else if (this.state.error !== "") {
-			Swal.fire({
-				title: "Ha ocurrido un error",
-				text: this.state.error,
-				icon: "error",
-				confirmButtonText: "Entendido",
-			}).then((result) => {
-				this.props.onClearError();
-			});
 		}
 	}
 
 	componentWillReceiveProps(nextState) {
 		this.setState({
 			isUserLoggedIn: nextState.isUserLoggedIn,
-			error: nextState.error,
+			//error: nextState.error,
 		});
 	}
 
@@ -40,6 +31,8 @@ class SignUp extends React.Component {
 		const userData = {
 			email: this.state.userName,
 			password: this.state.password,
+			telefono: this.state.telefono,
+			direccion: this.state.direccion,
 		};
 
 		this.props.onUserLogin(userData, () => {
@@ -48,13 +41,18 @@ class SignUp extends React.Component {
 	};
 
 	handleChange = (e, target) => {
+		const re = /^[0-9\b]+$/;
+
 		var updatedState = {
 			...this.state,
 		};
 		updatedState[target] = e.target.value;
+		console.log(updatedState[target]);
 		this.setState({
 			userName: updatedState.userName,
 			password: updatedState.password,
+			telefono: updatedState.telefono,
+			direccion: updatedState.direccion,
 		});
 	};
 
@@ -100,10 +98,29 @@ class SignUp extends React.Component {
 									}}
 								/>
 							</li>
-
 							<li className={styles.lItem2}>
-								<input type="checkbox" />
-								<a className={styles.terms}>Aceptar términos y condiciones</a>
+								<p className={styles.txt}>Telefono</p>
+								<input
+									className={styles.lInput}
+									type="text"
+									onChange={(e) => {
+										this.handleChange(e, "telefono");
+									}}
+								/>
+							</li>
+							<li className={styles.lItem2}>
+								<p className={styles.txt}>Dirección</p>
+								<input
+									className={styles.lInput}
+									type="text"
+									onChange={(e) => {
+										this.handleChange(e, "direccion");
+									}}
+								/>
+							</li>
+							<li className={styles.lItem2}>
+								<input type="checkbox" required />
+								<a className={styles.terms}>Es usted mayor de 21 años?</a>
 							</li>
 							<button type="submit">registrarme</button>
 						</form>
@@ -119,14 +136,12 @@ const mapStateToProps = (state) => {
 		isUserLoggedIn: state.authStore.isUserLoggedIn,
 		uid: state.authStore.user.uid,
 		loadingAuth: state.authStore.loadingAuth,
-		error: state.errorStore.error,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		onUserLogin: (authData, onSuccessCallback) => dispatch(actionCreators.signUp(authData, onSuccessCallback)),
-		onClearError: () => dispatch(actionCreators.clearError()),
 	};
 };
 
