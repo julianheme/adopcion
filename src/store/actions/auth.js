@@ -45,13 +45,25 @@ const SignUp = (userName, token, localId) => {
 
 export const signUp = (user, onSuccessCallback) => {
 	return (dispatch) => {
+		dispatch(startAuthLoading());
+		const { email, password } = user;
 		firebase
 			.auth()
-			.createUserWithEmailAndPassword(user.email, user.password)
+			.createUserWithEmailAndPassword(email, password)
 			.then(function (response) {
-				console.log(response);
 				const uid = response.user.uid;
+				const token = response.user.token;
+				let userSession = {
+					token,
+					email,
+					uid,
+				};
+				userSession = JSON.stringify(userSession);
+				localStorage.setItem("userSession", userSession);
+
+				dispatch(saveSession(email, token, uid));
 				dispatch(users.addUser(user, uid));
+				dispatch(endAuthLoading());
 				if (onSuccessCallback) {
 					onSuccessCallback();
 				}
@@ -69,7 +81,6 @@ export const signUp = (user, onSuccessCallback) => {
 export const logIn = (authData, onSuccessCallback) => {
 	return (dispatch) => {
 		dispatch(startAuthLoading());
-		console.log(authData);
 		const { email, password } = authData;
 		firebase
 			.auth()

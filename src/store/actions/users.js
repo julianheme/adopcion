@@ -12,37 +12,6 @@ const getUser = (user) => {
 	};
 };
 
-const addUsuario = (user) => {
-	return {
-		type: ActionTypes.ADD_USER,
-		payload: {
-			user,
-		},
-	};
-};
-
-export const fetchUser = (uid) => {
-	return (dispatch) => {
-		var ref = database.ref(`Users/${uid}`);
-		let user = {
-			uid,
-		};
-		ref.once(
-			"value",
-			function (snapshot) {
-				user = {
-					...user,
-					...snapshot.val(),
-				};
-				dispatch(getUser(user));
-			},
-			function (errorObject) {
-				console.log("The read failed: " + errorObject.code);
-			}
-		);
-	};
-};
-
 export const addUser = (user, uid) => {
 	return (dispatch) => {
 		database.ref("Users/" + uid).set(user);

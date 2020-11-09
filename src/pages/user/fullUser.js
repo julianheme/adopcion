@@ -79,7 +79,7 @@ class fullUser extends React.Component {
 						onClick={this.handleLogOut}
 					/>
 				</div>
-				<h2>Mascotas</h2>
+				<h2>Mascotas en las que estas interesado</h2>
 				<div className={styles.list}>
 					{pets.map((i) => {
 						return (
