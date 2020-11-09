@@ -8,6 +8,7 @@ const getUser = (state, action) => {
 		...payload,
 	});
 };
+
 const getPets = (state, action) => {
 	const { payload } = action;
 	return updateObject(state, {

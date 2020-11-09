@@ -61,7 +61,6 @@ export const getMascotas = (uid) => {
 				let pets = {
 					...snapshot.val(),
 				};
-				console.log(pets);
 				dispatch(getPets(pets));
 			},
 			function (errorObject) {

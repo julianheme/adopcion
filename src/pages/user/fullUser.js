@@ -7,12 +7,30 @@ import * as actionCreators from "../../store/actions";
 
 class fullUser extends React.Component {
 	componentDidMount() {
-		if (this.props.isUserLoggedIn) this.props.onLoad(this.props.uid);
-		console.log(this.props.pets);
+		if (this.props.isUserLoggedIn) {
+			this.props.onLoad(this.props.uid);
+		}
 	}
 
 	render() {
-		return <div className={styles.list}></div>;
+		if (this.props.pets !== undefined)
+			return (
+				<div className={styles.list}>
+					{this.props.pets.map((i) => {
+						return (
+							<div className={styles.item}>
+								<p className={styles.text}>{i.nombre}</p>
+								<div className={styles.btnGrid}>
+									<button icon={mdiSquareEditOutline} title="Editar contenido" iconSize={1} flag="edit" />
+									<button icon={mdiDelete} title="Eliminar entrada" iconSize={1} flag="delete" />
+								</div>
+							</div>
+						);
+					})}
+				</div>
+			);
+
+		return "Cargando...";
 	}
 }
 
