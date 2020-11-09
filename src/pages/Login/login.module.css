@@ -1,0 +1,55 @@
+.main {
+	background: #fff;
+	padding: 3%;
+}
+.titulo {
+	font-size: 90px;
+	font-family: Cookie-Regular;
+	text-align: center;
+	font-weight: normal;
+	padding: 0% 3%;
+}
+.logGrid {
+	display: grid;
+	grid-template-columns: repeat(2, 50%);
+}
+.imagen {
+	width: 100%;
+	height: auto;
+	padding: 1.5% 3% 3% 3%;
+}
+.logDiv {
+	margin-left: 30%;
+	display: flex;
+	list-style: none;
+}
+.logCreate {
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+	width: 300px;
+	padding: 0;
+	border-bottom: solid #c8cccc 1px;
+}
+.lItem {
+	margin: 2%;
+	padding: 10px;
+}
+.lItem2 {
+	margin: auto;
+	padding: 3px;
+}
+.lInput {
+	margin: auto;
+	padding: 5px;
+	width: 270px;
+}
+.txt {
+	margin: 0;
+	padding: 0;
+	color: #919797;
+}
+.forgot {
+	font-size: 12px;
+	color: #fe1177;
+}

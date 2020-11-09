@@ -18,15 +18,11 @@ class FullPet extends React.Component {
 			.get(`/Fundaciones.json`, {})
 			.then((res) => {
 				const data = res.data;
-				data.find((item) =>
-					item.id === id
+				data.map((item) =>
+					item.id == id
 						? item.Pets.map((pet) => (resp[1] == pet.id ? this.setState({ pet: pet }) : 'console.log("error ID")'))
-						: 'console.log("error")'
+						: ""
 				);
-				/*
-                this.setState({pet: data});
-				const data = res.data;
-				data.map((item) => (item.id === id ? this.setState({ fundacion: item }) : <Redirect to="/" />));*/
 			})
 			.catch((error) => {
 				console.log(error);
@@ -45,6 +41,7 @@ class FullPet extends React.Component {
 						<p>{this.state.pet.descripcion}</p>
 						<p>Edad: {this.state.pet.edad}</p>
 						<p>Genero: {this.state.pet.genero}</p>
+						<button>Estoy interesado!</button>
 					</div>
 				</div>
 				<Footer />
